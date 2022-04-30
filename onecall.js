@@ -1183,6 +1183,7 @@ Module.register("onecall", {
 			this.start = moment(data.alerts[0].start, "X").format("HH:mm");
 			this.end = moment(data.alerts[0].end, "X").format("HH:mm");
 			this.alert = data.alerts[0].description;
+			this.tags = data.alerts[0].tags;
 		}
 
 		this.temperature === "-0.0" ? 0.0 : this.temperature;
@@ -1226,6 +1227,8 @@ Module.register("onecall", {
 
 		this.sendNotification("CURRENTWEATHER_TYPE", { type: this.config.iconTable[data.current.weather[0].icon].replace("-", "_") });
 	//	Log.info("CURRENTWEATHER_TYPE", { type: this.config.iconTable[data.current.weather[0].icon].replace("-", "_") });
+
+		this.sendNotification("CURRENTWEATHER_ALERT", { tags: this.tags });
 	},
 
 	processDaily: function (data) {
