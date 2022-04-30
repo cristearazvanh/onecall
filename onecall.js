@@ -1228,7 +1228,7 @@ Module.register("onecall", {
 		this.sendNotification("CURRENTWEATHER_TYPE", { type: this.config.iconTable[data.current.weather[0].icon].replace("-", "_") });
 	//	Log.info("CURRENTWEATHER_TYPE", { type: this.config.iconTable[data.current.weather[0].icon].replace("-", "_") });
 
-		this.sendNotification("CURRENTWEATHER_ALERT", { tags: this.tags });
+		this.sendNotification("CURRENTWEATHER_ALERT", { tags: "weather_alert"}); // this.tags });
 	},
 
 	processDaily: function (data) {
